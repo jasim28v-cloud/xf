@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>InstaClone | منصة صور وفيديوهات</title>
+    <title>instagrami ❤️ | منصة صور وفيديوهات</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://upload-widget.cloudinary.com/global/all.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.0/firebase-app-compat.js"></script>
@@ -15,7 +15,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #fafafa; color: #262626; overflow: hidden; height: 100vh; }
         
-        /* شاشة تسجيل الدخول (مستوحاة من إنستقرام) */
+        /* شاشة تسجيل الدخول */
         .login-screen { position: fixed; inset: 0; z-index: 1000; background: #fff; display: flex; align-items: center; justify-content: center; }
         .login-card { background: #fff; border-radius: 32px; padding: 40px 28px; width: 90%; max-width: 380px; text-align: center; box-shadow: 0 0 20px rgba(0,0,0,0.05); border: 1px solid #dbdbdb; }
         .login-card h1 { font-size: 38px; font-weight: 900; color: #262626; margin-bottom: 30px; }
@@ -34,21 +34,19 @@
         
         /* التطبيق الرئيسي */
         #mainApp { display: none; height: 100vh; background: #fafafa; position: relative; overflow-y: auto; }
-        
-        /* شريط علوي */
         .top-bar { position: sticky; top: 0; background: white; border-bottom: 1px solid #dbdbdb; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; z-index: 10; }
         .logo { font-weight: 800; font-size: 24px; letter-spacing: -0.5px; background: linear-gradient(135deg, #e4405f, #f58529); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .top-icons { display: flex; gap: 20px; }
         .top-icon { background: none; border: none; font-size: 24px; color: #262626; cursor: pointer; }
         
-        /* حاوية القصص */
+        /* القصص */
         .stories-container { background: white; border-bottom: 1px solid #dbdbdb; padding: 12px 16px; overflow-x: auto; display: flex; gap: 16px; scrollbar-width: thin; }
         .story-item { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; flex-shrink: 0; }
         .story-avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #e4405f, #f58529); padding: 2px; }
         .story-avatar img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; border: 2px solid white; }
         .story-name { font-size: 12px; color: #262626; max-width: 70px; overflow: hidden; text-overflow: ellipsis; }
         
-        /* حاوية المنشورات (Feed) */
+        /* المنشورات */
         .feed-container { padding: 16px 0 80px; }
         .post-card { background: white; margin-bottom: 16px; border-radius: 12px; overflow: hidden; border: 1px solid #dbdbdb; }
         .post-header { display: flex; align-items: center; gap: 12px; padding: 12px; }
@@ -68,37 +66,47 @@
         .nav-item { background: none; border: none; font-size: 26px; color: #8e8e8e; cursor: pointer; }
         .nav-item.active { color: #e4405f; }
         
-        /* لوحات إضافية (منشور جديد، بحث، إشعارات، ملف شخصي، دردشة) */
+        /* اللوحات الجانبية */
         .panel { position: fixed; inset: 0; background: white; z-index: 200; transform: translateX(100%); transition: 0.3s; overflow-y: auto; }
         .panel.open { transform: translateX(0); }
         .panel-header { display: flex; justify-content: space-between; align-items: center; padding: 16px; border-bottom: 1px solid #dbdbdb; position: sticky; top: 0; background: white; }
         .close-btn { background: none; border: none; font-size: 24px; cursor: pointer; }
         
-        /* إضافة منشور */
+        /* رفع منشور */
         .upload-area { border: 2px dashed #dbdbdb; border-radius: 20px; padding: 40px; text-align: center; margin: 20px; cursor: pointer; }
         .upload-area i { font-size: 48px; color: #e4405f; }
-        
-        /* باقي العناصر (مشابهة للتيك توك) */
         .search-input { width: calc(100% - 32px); margin: 16px; padding: 12px; border-radius: 30px; border: 1px solid #dbdbdb; }
+        
+        /* الملف الشخصي */
         .profile-header { text-align: center; padding: 32px 16px; background: white; border-bottom: 1px solid #dbdbdb; }
         .profile-avatar-large { width: 96px; height: 96px; border-radius: 50%; margin: 0 auto; background: #e4405f; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; }
+        .profile-avatar-large img { width: 100%; height: 100%; object-fit: cover; }
         .profile-stats { display: flex; justify-content: center; gap: 40px; margin: 20px 0; }
         .stat { text-align: center; }
         .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
         .post-thumb { aspect-ratio: 1; background: #efefef; display: flex; align-items: center; justify-content: center; cursor: pointer; }
         
         /* الدردشة */
-        .chat-messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+        .chat-messages { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 12px; height: calc(100vh - 130px); }
         .chat-message { display: flex; gap: 8px; max-width: 85%; }
         .chat-message.sent { align-self: flex-end; flex-direction: row-reverse; }
         .message-bubble { background: #efefef; padding: 10px 14px; border-radius: 20px; }
         .message-bubble.sent { background: #e4405f; color: white; }
-        .chat-input { display: flex; gap: 12px; padding: 12px; border-top: 1px solid #dbdbdb; background: white; }
+        .message-image { max-width: 200px; max-height: 200px; border-radius: 16px; cursor: pointer; }
+        .chat-input { display: flex; gap: 12px; padding: 12px; border-top: 1px solid #dbdbdb; background: white; position: sticky; bottom: 0; }
         .chat-input input { flex: 1; padding: 10px; border: 1px solid #dbdbdb; border-radius: 30px; }
-        
+        .conversation-item { display: flex; align-items: center; gap: 12px; padding: 12px; border-bottom: 1px solid #dbdbdb; cursor: pointer; }
         .loading { text-align: center; padding: 50px; color: #8e8e8e; }
         .spinner { width: 36px; height: 36px; border: 3px solid rgba(228,64,95,0.3); border-top-color: #e4405f; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto; }
         @keyframes spin { to { transform: rotate(360deg); } }
+        .admin-panel-section { margin-top: 20px; padding: 16px; background: rgba(228,64,95,0.1); border-radius: 20px; border: 1px solid rgba(228,64,95,0.3); }
+        .admin-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 20px; }
+        .admin-stat-card { background: rgba(0,0,0,0.05); border-radius: 12px; padding: 12px; text-align: center; }
+        .admin-stat-number { font-size: 24px; font-weight: bold; color: #e4405f; }
+        .admin-list { max-height: 300px; overflow-y: auto; }
+        .admin-item { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.05); padding: 10px; border-radius: 12px; margin-bottom: 8px; }
+        .admin-delete-btn, .admin-ban-btn { background: rgba(255,0,0,0.2); border: none; color: #ff4444; padding: 6px 12px; border-radius: 20px; font-size: 11px; cursor: pointer; margin-left: 5px; }
+        .admin-ban-btn { background: rgba(255,165,0,0.2); color: #ffaa44; }
     </style>
 </head>
 <body>
@@ -106,7 +114,7 @@
 <!-- شاشة تسجيل الدخول -->
 <div id="loginScreen" class="login-screen">
     <div class="login-card">
-        <h1>InstaClone <i class="fab fa-instagram"></i></h1>
+        <h1>instagrami <i class="fas fa-heart" style="color:#e4405f"></i></h1>
         <div class="auth-tabs">
             <button class="auth-tab active" onclick="switchAuth('login')">تسجيل الدخول</button>
             <button class="auth-tab" onclick="switchAuth('register')">إنشاء حساب</button>
@@ -124,15 +132,14 @@
             <button onclick="register()">إنشاء حساب</button>
             <div id="regMsg" class="text-red-500 text-sm text-center mt-3"></div>
         </div>
-        <div class="version">الإصدار 1.0 | مارس 2026</div>
+        <div class="version">الإصدار 2.0 | مارس 2026</div>
     </div>
 </div>
 
 <!-- التطبيق الرئيسي -->
 <div id="mainApp">
-    <!-- شريط علوي -->
     <div class="top-bar">
-        <div class="logo">InstaClone</div>
+        <div class="logo">instagrami ❤️</div>
         <div class="top-icons">
             <i class="far fa-heart top-icon" onclick="openNotifications()"></i>
             <i class="far fa-paper-plane top-icon" onclick="openConversations()"></i>
@@ -142,7 +149,7 @@
     <!-- القصص -->
     <div id="storiesContainer" class="stories-container"><div class="loading">جاري تحميل القصص...</div></div>
 
-    <!-- الفيد (المنشورات) -->
+    <!-- المنشورات -->
     <div id="feedContainer" class="feed-container"><div class="loading">جاري تحميل المنشورات...</div></div>
 
     <!-- شريط سفلي -->
@@ -150,7 +157,7 @@
         <button class="nav-item active" onclick="switchTab('feed')"><i class="fas fa-home"></i></button>
         <button class="nav-item" onclick="switchTab('search')"><i class="fas fa-search"></i></button>
         <button class="nav-item" onclick="openCreatePost()"><i class="fas fa-plus-square"></i></button>
-        <button class="nav-item" onclick="switchTab('profile')"><i class="fas fa-user"></i></button>
+        <button class="nav-item" onclick="openMyProfile()"><i class="fas fa-user"></i></button>
     </div>
 
     <!-- لوحة إنشاء منشور -->
@@ -202,6 +209,8 @@
         <div class="panel-header"><div class="flex items-center gap-3"><div class="w-10 h-10 rounded-full bg-[#e4405f] flex items-center justify-center" id="chatAvatar">👤</div><h3 id="chatUserName">محادثة</h3></div><button class="close-btn" onclick="closeChat()"><i class="fas fa-times"></i></button></div>
         <div id="chatMessages" class="chat-messages"></div>
         <div class="chat-input">
+            <div class="chat-attachment cursor-pointer text-2xl" onclick="document.getElementById('chatImageInput').click()"><i class="fas fa-image"></i></div>
+            <input type="file" id="chatImageInput" accept="image/*" style="display:none" onchange="sendChatImage(this)">
             <input type="text" id="chatMessageInput" placeholder="اكتب رسالة...">
             <button onclick="sendChatMessage()" class="bg-[#e4405f] text-white px-4 rounded-full"><i class="fas fa-paper-plane"></i></button>
         </div>
