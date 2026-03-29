@@ -1,21 +1,19 @@
-// Firebase Configuration - استخدم هذه الإعدادات الجديدة
+// ⚠️ ضع إعدادات Firebase الخاصة بمشروع coco-88863 هنا
 const firebaseConfig = {
-    apiKey: "AIzaSyBMKBnXRZ2mL5C2FYRih6NSpBIbebYeTBI",
-    authDomain: "porn-dc411.firebaseapp.com",
-    databaseURL: "https://porn-dc411-default-rtdb.firebaseio.com",
-    projectId: "porn-dc411",
-    storageBucket: "porn-dc411.firebasestorage.app",
-    messagingSenderId: "344117985586",
-    appId: "1:344117985586:web:d1064a4fd269983174572b",
-    measurementId: "G-CZ6E0V68WZ"
+    apiKey: "YOUR_API_KEY",
+    authDomain: "coco-88863.firebaseapp.com",
+    databaseURL: "https://coco-88863-default-rtdb.firebaseio.com",
+    projectId: "coco-88863",
+    storageBucket: "coco-88863.firebasestorage.app",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
 };
 
 firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth();
 const db = firebase.database();
 
-// Cloudinary Configuration - استخدم هذه الإعدادات
 const CLOUD_NAME = 'dnillsbmi';
 const UPLOAD_PRESET = 'ekxzvogb';
 
-console.log('✅ ECHO Platform Ready');
+console.log('✅ InstaClone Ready');
