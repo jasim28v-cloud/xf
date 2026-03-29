@@ -18,7 +18,7 @@ export const db = getDatabase(app);
 
 export { ref, push, set, onValue, update, get, child };
 
-// Cloudinary Configuration
+// Cloudinary
 export const CLOUD_NAME = 'dnmpmysk6';
 export const UPLOAD_PRESET = 'rsxdfdgw';
 
