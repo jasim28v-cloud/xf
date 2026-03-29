@@ -1,25 +1,19 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-app.js";
-import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-auth.js";
-import { getDatabase, ref, push, set, onValue, update, get, child } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-database.js";
-
 const firebaseConfig = {
-    apiKey: "AIzaSyAxtEkrEgl0C9djPkxKKX-sENtOzPEbHB8",
-    authDomain: "tope-e5350.firebaseapp.com",
-    databaseURL: "https://tope-e5350-default-rtdb.firebaseio.com",
-    projectId: "tope-e5350",
-    storageBucket: "tope-e5350.firebasestorage.app",
-    messagingSenderId: "187788115549",
-    appId: "1:187788115549:web:5012a1053d2ff7dced97b4"
+    apiKey: "AIzaSyCVyQS6kuOBDyx_FXoGx6xgXxbbzjs5COg",
+    authDomain: "fokx-c135a.firebaseapp.com",
+    databaseURL: "https://fokx-c135a-default-rtdb.firebaseio.com",
+    projectId: "fokx-c135a",
+    storageBucket: "fokx-c135a.firebasestorage.app",
+    messagingSenderId: "447033620521",
+    appId: "1:447033620521:web:730fde0a59cb5624128438"
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getDatabase(app);
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.database();
 
-export { ref, push, set, onValue, update, get, child };
+// Cloudinary Configuration
+const CLOUD_NAME = 'dk5kas1gc';
+const UPLOAD_PRESET = 'go_kck';
 
-// Cloudinary
-export const CLOUD_NAME = 'dnmpmysk6';
-export const UPLOAD_PRESET = 'rsxdfdgw';
-
-console.log('✅ Firebase initialized');
+console.log('✅ instagrami Ready');
